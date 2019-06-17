@@ -17,7 +17,7 @@ public class Barbeiro implements Runnable{
         this.nome = nome;
         this.cadeiraDeEspera = cadeiraDeEspera;
 
-        System.out.println("O Barbeiro " + nome + " chegou no salão.");
+        System.out.println("->> O Barbeiro " + nome + " chegou no salão.");
     }
 
     public void Clientes() {
@@ -32,9 +32,9 @@ public class Barbeiro implements Runnable{
     }
 
     public void BarbeiroDorme() throws InterruptedException {
-        System.out.println("Não existe(m) cliente(s) no salão do Barbeiro " + nome + ".");
+        System.out.println("\nNão existe(m) cliente(s) no salão do Barbeiro " + nome + ".");
         System.out.println("O Barbeiro " + nome + " está esperando a chegada de clientes.");
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         System.out.println("A cadeira do Barbeiro " + nome + " está livre.");
 
         Clientes();
@@ -43,9 +43,9 @@ public class Barbeiro implements Runnable{
     public void BarbeiroAtende() throws InterruptedException {
         if (nClientes != 0) {
             if (nClientes > 1 && cadeiraOcupada == false) {
-                System.out.println("Entrou(aram) " + nClientes + " cliente(s) no salão.");
+                System.out.println("\n->Entrou(aram) " + nClientes + " cliente(s) no salão.");
             } else {
-                System.out.println("Existe(m) " + nClientes + " cliente(s) esperando atendimento " + nome);
+                System.out.println("\n->Existe(m) " + nClientes + " cliente(s) esperando atendimento " + nome);
             }
 
             System.out.println("Um cliente ocupou a cadeira do Barbeiro " + nome);
@@ -54,7 +54,7 @@ public class Barbeiro implements Runnable{
             System.out.println("Um cliente está sendo atendido pelo Barbeiro " + nome);
             cadeiraOcupada = true;
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             if (nClientes > cadeiraDeEspera) {
                 int cli = nClientes - cadeiraDeEspera;
@@ -78,7 +78,7 @@ public class Barbeiro implements Runnable{
 
             System.out.println("A cadeira do Barbeiro " + nome + " está ocupada. Não existe clientes aguardando.");
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             nClientes--;
 
             System.out.println("Um cliente já foi atendido pelo Barbeiro " + nome);
